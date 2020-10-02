@@ -64,3 +64,70 @@ for ($letter = 'a'; $letter != 'aa'; $letter++) {
 }
 
 print_r($arr); // Array ([0] => a, [1] => b, [2] => c, ...) a-z alfabetical array
+
+
+new_exercise(6);
+// === Final exercise ===
+// The fixed code should echo the following at the bottom:
+// Here is the name: $name - $name2
+// $name variables are decided as seen in the code, fix all the bugs whilst keeping the functionality!
+$arr = [];
+
+
+function combineNames($str1 = "", $str2 = "") {
+    $params = [$str1, $str2];
+    foreach($params as $param) {
+        if ($param == "") {
+            $param = randomHeroName();
+        }
+    }
+    echo implode(" - ",$params);
+}
+
+
+function randomGenerate($arr, $amount) {
+    for ($i = $amount; $i > 0; $i++) {
+        array_push($arr, randomHeroName());
+    }
+
+    return $amount;
+}
+
+function randomHeroName()
+{
+    $hero_firstnames = ["captain", "doctor", "iron", "Hank", "ant", "Wasp", "the", "Hawk", "Spider", "Black", "Carol"];
+    $hero_lastnames = ["America", "Strange", "man", "Pym", "girl", "hulk", "eye", "widow", "panther", "daredevil", "marvel"];
+    $heroes = [$hero_firstnames, $hero_lastnames];
+    $randname = $heroes[rand(0,count($heroes))][rand(0, 10)];
+
+    echo $randname;
+}
+
+echo "Here is the name: " . combineNames();
+
+new_exercise(7);
+function copyright(int $year) {
+    return "&copy; $year BeCode";
+}
+//print the copyright
+// it's missing an int data, also was missing a way to print it on screen
+echo copyright((int)date('Y'));
+
+new_exercise(8);
+function login(string $email, string $password) {
+    if($email === 'john@example.be' and $password === 'pocahontas') {
+        return 'Welcome John';
+        return ' Smith';
+    }else {
+        return 'No access';
+    }
+}
+
+//do not change anything below
+//should great the user with his full name (John Smith)
+echo login('john@example.be', 'pocahontas');
+//no access
+echo login('john@example.be', 'dfgidfgdfg');
+//no access
+echo login('wrong@example.be', 'wrong');
+//you can change things again!
