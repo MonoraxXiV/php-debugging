@@ -27,3 +27,8 @@ $monday = $week[0];
 
 echo $monday;
 
+new_exercise(3);
+
+// in php strings in double quotes are for special characters
+$str = 'Debugged ! Also very fun';
+echo substr($str, 0, 10);
